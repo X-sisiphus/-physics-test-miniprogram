@@ -1,0 +1,39 @@
+<!--logs.wxml-->
+<view class="container log-list" style="width: 320rpx; height: 44rpx; display: flex; box-sizing: border-box">
+    
+<view style="position: relative; left: -86rpx; top: -36rpx">学号</view>
+<input adjust-position="{{ true }}" style="display: block; box-sizing: border-box; border: 1px solid; border-radius: 5px; position: relative; left: 0rpx; top: -36rpx; font-weight: 300" placeholder="请输入学号" />
+
+    <view class="page-section" wx:for="{{questionsList}}" wx:for-index="key" wx:for-item="item" style="width: 618rpx; height: 100vh; display: block; box-sizing: border-box; position: relative; left: 188rpx; top: 2rpx;">
+        
+    <mp-row>
+    <mp-col span="{{24}}"><view>{{key+1}} :{{item.question}}</view></mp-col>
+    
+    <mp-col wx:if="{{item.options == null}}" span="{{24}}">
+        
+        <input adjust-position="{{ true }}" style="box-sizing: border-box; border: 1px solid; border-radius: 5px; font-weight: 300" placeholder="请输入答案" bindchange="checkboxChange" data-questionskey="{{key}}"
+        data-questionsid="{{item.questionId}}" data-questionsparams="{{item.params}}"/>
+    </mp-col>
+    <view wx:if="{{item.options != null}}">
+        <radio-group bindchange="checkboxChange" data-questionskey="{{key}}"
+        data-questionsid="{{item.questionId}}">
+          <label class="weui-cell weui-check__label" wx:for="{{item.options}}" wx:key="{{item}}">
+            <view style="line-height:30px">
+              <radio value="{{item}}"/>
+           
+            {{item}}</view>
+          </label>
+        </radio-group>
+    </view>
+    <text decode="{{true}}">
+         &nbsp; 
+      </text>
+    </mp-row>
+    </view>
+    <view style="position: relative; left: 188rpx; top: -22rpx; width: 802rpx; height: 238rpx; display: block; box-sizing: border-box">
+      <text decode="{{true}}">
+         &nbsp; 
+      </text>
+    <button style="position: relative; left: 0rpx; bottom: 80rpx; top: -44rpx" bindtap="bindViewTap">提交</button>
+    </view>
+</view>

@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container"  style="width: 750rpx; height: 1356rpx; display: flex; box-sizing: border-box">
+
+
+
+  <text style="position: relative; color: #3991ED; font-weight: 900">天津大学大学物理随堂测试系统</text>
+  <input adjust-position="{{ true }}" style="width: 418rpx; height: 78rpx; display: block; box-sizing: border-box; border: 1px solid; border-radius: 5px; position: relative; left: 0rpx; top: 40rpx; font-weight: 300" placeholder="请输入随堂口令" bindchange="checkboxChange"/>
+
+  <button style="position: relative; left: 0rpx; top: -246rpx" bindtap="bindViewTap">确定</button>
+</view>
+
+
+
+
